@@ -8,7 +8,7 @@ This project demonstrates how to build, configure, and run a containerized web s
 
 ## Technologies
 
-- **HTML & CSS** — Website structure and styling
+- **HTML, CSS & JavaScript** — Website structure, styling, and interactivity
 - **Nginx** — Serves the website and handles HTTP requests
 - **Docker** — Builds images and runs containers
 - **Docker Compose** — Configures and manages the service
@@ -21,6 +21,7 @@ my-webserver-image/
 ├── html/
 │   ├── index.html
 │   ├── style.css
+│   ├── script.js
 │   └── 404.html
 ├── nginx/
 │   └── default.conf
@@ -36,6 +37,7 @@ my-webserver-image/
 | `html/` | Website files |
 | `html/index.html` | Main webpage |
 | `html/style.css` | Website styling |
+| `html/script.js` | Adds website interactivity, including product filters, mobile navigation, and a demo cart counter |
 | `html/404.html` | Custom missing-page content |
 | `nginx/default.conf` | Nginx server configuration |
 | `Dockerfile` | Defines how the image is built |
@@ -49,7 +51,7 @@ my-webserver-image/
 2. The Dockerfile copies the website files and custom Nginx configuration into the image.
 3. Docker Compose configures the service, including port mapping, read-only volume mounts, and a health check.
 4. Port `8082` on the host maps to port `80` inside the container.
-5. Read-only mounts make local HTML, CSS, and Nginx configuration files available to the running container during development.
+5. Read-only mounts make local HTML, CSS, JavaScript, and Nginx configuration files available to the running container during development.
 6. Nginx serves a custom 404 page for missing URLs.
 7. Docker periodically checks whether Nginx responds to a local HTTP request.
 8. The `unless-stopped` restart policy allows Docker to restart the service after unexpected stops.
@@ -124,6 +126,8 @@ docker compose down
 - Version-tagged Alpine-based Nginx image
 - Custom Nginx configuration
 - Custom 404 page
+- JavaScript-powered frontend interactions
+- Demo cart counter (no real checkout or payment processing)
 - Docker Compose service management
 - Port mapping (`8082:80`)
 - Read-only volume mounts
